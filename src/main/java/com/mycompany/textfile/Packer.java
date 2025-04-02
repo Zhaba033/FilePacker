@@ -12,12 +12,9 @@ public class Packer {
     private boolean minimize = true;
     private int b;
     
-    Encoder encoder;
-    
-    
+   
     Packer(int b) {
         this.b = b;
-        encoder = new Encoder(b);
     }
     
     
