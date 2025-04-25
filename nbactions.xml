@@ -12,8 +12,8 @@
             <properties>
                 <exec.vmArgs></exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
-                <exec.appArgs>encoded.png dec 25</exec.appArgs>
-                <exec.mainClass>${packageClassName}</exec.mainClass>
+                <exec.appArgs>encrypt C:\Users\Игорь\Desktop\ТЕСТ2.PNG mykey</exec.appArgs>
+                <exec.mainClass>com.mycompany.textfile.Textfile</exec.mainClass>
                 <exec.executable>java</exec.executable>
             </properties>
         </action>
@@ -29,8 +29,8 @@
             <properties>
                 <exec.vmArgs>-agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address}</exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
-                <exec.appArgs>encoded.png dec 25</exec.appArgs>
-                <exec.mainClass>${packageClassName}</exec.mainClass>
+                <exec.appArgs>encrypt C:\Users\Игорь\Desktop\ТЕСТ2.PNG mykey</exec.appArgs>
+                <exec.mainClass>com.mycompany.textfile.Textfile</exec.mainClass>
                 <exec.executable>java</exec.executable>
                 <jpda.listen>true</jpda.listen>
             </properties>
@@ -47,9 +47,9 @@
             <properties>
                 <exec.vmArgs></exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
-                <exec.mainClass>${packageClassName}</exec.mainClass>
+                <exec.mainClass>com.mycompany.textfile.Textfile</exec.mainClass>
                 <exec.executable>java</exec.executable>
-                <exec.appArgs>encoded.png dec 25</exec.appArgs>
+                <exec.appArgs>encrypt C:\Users\Игорь\Desktop\ТЕСТ2.PNG mykey</exec.appArgs>
             </properties>
         </action>
     </actions>
