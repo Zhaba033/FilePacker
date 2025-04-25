@@ -36,7 +36,9 @@ public class Textfile {
                         if (!new String(console.readPassword("Повторите пароль: ")).equals(passwordGen)) {
                             System.out.println("Пароли не совпадают, попробуйте еще раз.");
                         } else {
-                            KeyWorker.generateKey(keyName, passwordGen);
+                            if (!KeyWorker.generateKey(keyName, passwordGen)) {
+                                System.out.println("Ошибка генерации ключа, скорее всего, имя уже занято");
+                            }
                         }
                         break;
                     case "encrypt":
@@ -52,7 +54,7 @@ public class Textfile {
                         if (dirEnc.exists()) {
                             if (keyEnc != null) {
                                 Encryptor enc = new Encryptor();
-                                enc.decryptDir(dirEnc, keyEnc);
+                                enc.encryptDir(dirEnc, keyEnc);
                             } else {
                                 System.out.println("Неверное название ключа или пароль от него");
                             }

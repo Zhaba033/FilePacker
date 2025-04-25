@@ -26,8 +26,7 @@ public class Encryptor {
             try (FileInputStream fis = new FileInputStream(file); FileOutputStream fos = new FileOutputStream(file.getParentFile().getAbsolutePath() + "/ENCRYPTED_" + file.getName())) {
                 byte[] fileBytes = fis.readAllBytes();
                 byte[] encryptedFile = cipher.doFinal(fileBytes);
-                String encryptedText = Base64.getEncoder().encodeToString(encryptedFile);
-                fos.write(encryptedText.getBytes());
+                fos.write(encryptedFile);
             }
             file.delete();
         } else {
@@ -44,7 +43,7 @@ public class Encryptor {
         if (!file.isDirectory()) {
             try (FileInputStream fis = new FileInputStream(file); FileOutputStream fos = new FileOutputStream(file.getParentFile().getAbsolutePath() + "/" + file.getName().substring(10))) {
                 byte[] fileBytes = fis.readAllBytes();
-                byte[] decryptedFile = cipher.doFinal(Base64.getDecoder().decode(new String(fileBytes)));
+                byte[] decryptedFile = cipher.doFinal(fileBytes);
                 fos.write(decryptedFile);
             }
             file.delete();
