@@ -7,9 +7,10 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.Base64;
+import lombok.extern.slf4j.Slf4j;
 import org.json.JSONObject;
 
-
+@Slf4j
 public class Checker{
     
     public void saveHash(String dir, String jsonName) throws Exception {
@@ -25,7 +26,7 @@ public class Checker{
         try (FileOutputStream fos = new FileOutputStream(jsonName)) {
             fos.write(hashArr.toString(4).getBytes());
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            log.error("ERROR: ", e);
         }
         
     }
@@ -52,7 +53,7 @@ public class Checker{
                 }
             }
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            log.error("ERROR: ", e);
         }
         if (!wrongHash.isEmpty()) {
             return "Эти файлы были изменены или удалены: " + wrongHash.toString();
@@ -67,7 +68,7 @@ public class Checker{
             byte[] b = msg.digest(fis.readAllBytes());
             return Base64.getEncoder().encodeToString(b);
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            log.error("ERROR: ", e);
             return null;
         }
     }

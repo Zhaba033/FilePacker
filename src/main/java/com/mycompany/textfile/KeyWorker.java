@@ -33,7 +33,7 @@ public class KeyWorker {
         }
     }
 
-    public static SecretKey getKey(String keyName, String password) throws Exception {
+    public static SecretKey getKey(String keyName, String password){
         try {
         KeyStore keyStore = KeyStore.getInstance("JCEKS");
         try (FileInputStream fis = new FileInputStream(keyName + ".jceks")) {
